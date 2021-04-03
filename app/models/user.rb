@@ -10,6 +10,8 @@ class User < ApplicationRecord
 
          mount_uploader :profile_image, ProfileImageUploader
          has_many :reactions
+         has_many :chat_room_users
+         has_many :chat_rooms, through: :chat_room_users
          
          def update_without_current_password(params, *options)
 
